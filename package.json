@@ -1,0 +1,30 @@
+{
+  "name": "js-tetris-cli",
+  "version": "0.0.1",
+  "description": "open source javascript ascii tetris cli version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalininskiy/js-tetris-cli.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "ascii",
+    "ansi",
+    "tetris",
+    "cli",
+    "console",
+    "terminal",
+    "text"
+  ],
+  "author": "Ivan VDM Kalininskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kalininskiy/js-tetris-cli/issues"
+  },
+  "homepage": "https://github.com/kalininskiy/js-tetris-cli#readme"
+}
