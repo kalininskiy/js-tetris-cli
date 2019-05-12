@@ -1,0 +1,44 @@
+{
+  "matrix": {
+    "backgroundSymbols": " .",
+    "frontColor": "grey",
+    "backgroundColor": "black"
+  },
+  "piece": {
+    "I": {
+      "symbols": "[]",
+      "frontColor": "cyan",
+      "backgroundColor": "cyan"
+    },
+    "J": {
+      "symbols": "[]",
+      "frontColor": "blue",
+      "backgroundColor": "blue"
+    },
+    "L": {
+      "symbols": "[]",
+      "frontColor": "orange",
+      "backgroundColor": "orange"
+    },
+    "O": {
+      "symbols": "[]",
+      "frontColor": "yellow",
+      "backgroundColor": "yellow"
+    },
+    "S": {
+      "symbols": "[]",
+      "frontColor": "green",
+      "backgroundColor": "green"
+    },
+    "T": {
+      "symbols": "[]",
+      "frontColor": "purple",
+      "backgroundColor": "purple"
+    },
+    "Z": {
+      "symbols": "[]",
+      "frontColor": "red",
+      "backgroundColor": "red"
+    }
+  }
+}
