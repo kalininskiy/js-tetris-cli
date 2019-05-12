@@ -17,13 +17,14 @@ class Game {
         this.nextBlocks = null;
 
         this.updateBlocks();
+        this.moveBlocksDown();
     }
 
     updateBlocks() {
         this.activeBlocks = this.nextBlocks ? this.nextBlocks : Blocks.getRandom(this.config, 0, 0);
         this.nextBlocks = Blocks.getRandom(this.config, 0, 0);
         this.activeBlocks.x = Math.floor((this._matrix.columns - this.activeBlocks.width) / 2);
-        this.activeBlocks.y = -1;
+        // this.activeBlocks.y = -1;
 
         if (this._matrix.hasCollision(this.activeBlocks)) {
             this.topOut = true;
@@ -35,8 +36,7 @@ class Game {
     }
 
     updateScore() {
-        const clearedLines = this._grid.clearLines();
-
+        const clearedLines = this._matrix.clearLines();
         if (clearedLines > 0) {
             this.score += Game.points[clearedLines] * (this.level + 1);
             this.lines += clearedLines;
@@ -48,10 +48,17 @@ class Game {
     }
 
     get matrix() {
-        const matrix = this._matrix.map(row => [...row]);
+        const matrix = [];
+
+        for (let y = 0; y < this._matrix.rows; y++) {
+            matrix[y] = [];
+            for (let x = 0; x < this._matrix.columns; x++) {
+                matrix[y][x] = this._matrix[y][x];
+            }
+        }
 
         for (let block of this.activeBlocks) {
-            if (block) {
+            if (block && block.y > -1 && block.x > -1) {
                 matrix[block.y][block.x] = block;
             }
         }
@@ -84,11 +91,15 @@ class Game {
     }
 
     moveBlocksDown() {
+        if (this.topOut) return;
+
         this.activeBlocks.moveDown();
 
         if (this._matrix.hasCollision(this.activeBlocks)) {
             this.activeBlocks.moveUp();
-            this._matrix.placeBlocks(this.activeBlocks);
+            this.updateMatrix();
+            this.updateScore();
+            this.updateBlocks();
         }
     }
 

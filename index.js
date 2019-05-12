@@ -2,20 +2,21 @@ import Config from './src/config';
 import Blocks from './src/blocks';
 import Game from './src/game';
 import Matrix from './src/matrix';
+import readline from 'readline';
+import Controller from './src/controller';
 
 const config = new Config();
 const matrix = new Matrix(config.matrix);
 const game = new Game(config, matrix);
+const controller = new Controller(game, undefined);
 
-const activeBlocks = Blocks.getRandom(config, 3, 0);
+readline.emitKeypressEvents(process.stdin);
+process.stdin.setRawMode(true);
 
-game.setActiveBlocks(activeBlocks);
+process.stdin.on('keypress', (str, key) => {
+    if (key.ctrl && key.name === 'c') {
+        process.exit();
+    }
 
-game.rotateBlocks();
-game.rotateBlocks();
-game.rotateBlocks();
-game.moveBlocksDown();
-game.moveBlocksDown();
-game.placeActiveBlocks();
-
-console.log(game);
+    controller.handleKeyboard(key);
+});

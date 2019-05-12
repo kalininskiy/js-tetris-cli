@@ -30,18 +30,18 @@ class Blocks {
     }
 
     static getRandom(config, x ,y) {
-        const types = config.classicTypes;;
+        const types = config.classicTypes;
         const index = Math.floor(Math.random() * types.length);
         const type = types[index];
         return new Blocks(config.pieceTypes[type], x, y);
     }
 
     moveLeft() {
-        this.x +=1;
+        this.x -=1;
     }
 
     moveRight() {
-        this.x -=1;
+        this.x +=1;
     }
 
     moveUp() {
