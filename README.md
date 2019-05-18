@@ -12,7 +12,15 @@ For developers:
 
 	git clone https://github.com/kalininskiy/js-tetris-cli.git
 
-For using:
+Build:
+
+	npm run build
+
+Start:
+
+	npm start
+
+Install for using:
 
 	sudo npm install -g js-tetris-cli
 
