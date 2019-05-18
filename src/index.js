@@ -2,21 +2,31 @@ import Config from './src/config';
 import Blocks from './src/blocks';
 import Game from './src/game';
 import Matrix from './src/matrix';
-import readline from 'readline';
 import Controller from './src/controller';
+import readline from 'readline';
 
-const config = new Config();
-const matrix = new Matrix(config.matrix);
-const game = new Game(config, matrix);
-const controller = new Controller(game, undefined);
+/**
+ * Entry point
+ *
+ * @returns {Promise<boolean>}
+ */
+module.exports = async () => {
 
-readline.emitKeypressEvents(process.stdin);
-process.stdin.setRawMode(true);
+    const config = new Config();
+    const matrix = new Matrix(config.matrix);
+    const game = new Game(config, matrix);
+    const controller = new Controller(game, undefined);
 
-process.stdin.on('keypress', (str, key) => {
-    if (key.ctrl && key.name === 'c') {
-        process.exit();
-    }
+    readline.emitKeypressEvents(process.stdin);
+    process.stdin.setRawMode(true);
 
-    controller.handleKeyboard(key);
-});
+    process.stdin.on('keypress', (str, key) => {
+        if (key.ctrl && key.name === 'c') {
+            process.exit();
+        }
+
+        controller.handleKeyboard(key);
+    });
+
+    return true;
+};
