@@ -10,11 +10,11 @@ This software is distributed in the hope that it will be useful, but WITHOUT ANY
 
 For developers:
 
-<-->git clone https://github.com/kalininskiy/js-tetris-cli.git
+	git clone https://github.com/kalininskiy/js-tetris-cli.git
 
 For using:
 
-<-->sudo npm install -g js-tetris-cli
+	sudo npm install -g js-tetris-cli
 
 Usage:
 
