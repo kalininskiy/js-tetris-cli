@@ -12,6 +12,10 @@ For developers:
 
 	git clone https://github.com/kalininskiy/js-tetris-cli.git
 
+Install (babel):
+
+	npm install
+
 Build:
 
 	npm run build
