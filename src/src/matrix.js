@@ -20,18 +20,27 @@ class Matrix {
 
     placeBlocks(blocks) {
         for (const block of blocks) {
-            if (block) {
+            if (block &&
+                block.x > -1 &&
+                block.x < this.columns &&
+                block.y > -1 &&
+                block.y < this.rows) {
+
                 this[block.y][block.x] = block;
             }
         }
     }
 
     hasCollision(blocks) {
-        for (const block of blocks) {
-            if (block &&
-                (this.isOutOfBounds(block.x, block.y) || this.isOccupied(block.x, block.y))) {
+        for (let y = 0; y < blocks.blockConfig.length; y++) {
+            for (let x = 0; x < blocks.blockConfig[0].length; x++) {
+                const isAnyCollision = (blocks.blockConfig[y][x] === 1) &&
+                                       (this.isOutOfBounds(blocks.x + x, blocks.y + y) ||
+                                        this.isOccupied(blocks.x + x, blocks.y + y));
+                if (isAnyCollision) {
                     return true;
                 }
+            }
         }
         return false;
     }
@@ -67,12 +76,43 @@ class Matrix {
 
     removeLines(lines) {
         for (let index of lines) {
-            this.splice(index, 1);
+            this.splice(index);
             this.unshift(new Array(this.columns).fill(0));
         }
-
         return lines.length;
     }
+
+    splice(index) {
+        let tempArray = [];
+
+        for (let i = 0; i < this.rows; i++) {
+            tempArray.push(this[i]);
+        }
+
+        for (let i = 0; i < index; i++) {
+            this[i] = tempArray[i];
+        }
+
+        for (let i = index + 1; i < this.rows; i++) {
+            this[i - 1] = tempArray[i];
+        }
+
+        this[this.rows] = new Array(this.columns).fill(1);
+    };
+
+    unshift(row) {
+        let tempArray = [];
+
+        for (let i = 0; i < this.rows; i++) {
+            tempArray.push(this[i]);
+        }
+
+        this[0] = row;
+
+        for (let i = 0; i < this.rows - 1; i++) {
+            this[i + 1] = tempArray[i];
+        }
+    };
 
     isOutOfBounds(x, y) {
         return this[y] === undefined || this[y][x] === undefined;

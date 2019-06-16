@@ -1,3 +1,8 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 /**
  * AnsiRenderer - ascii/ansi terminal renderer,
  * using VT-100/ANSI control escape sequences for terminal cursor hopping and colors
@@ -15,7 +20,7 @@ class AnsiRenderer {
             dim: [2, 22],
             underline: [4, 24],
             italic: [3, 23],
-            inverse: [7, 27],
+            inverse: [7, 27]
         };
 
         this.ansiColorCodes = {
@@ -36,7 +41,7 @@ class AnsiRenderer {
             bgBlue: [44, 49],
             bgMagenta: [45, 49],
             bgCyan: [46, 49],
-            bgWhite: [47, 49],
+            bgWhite: [47, 49]
         };
 
         this.ansi = this._generateAnsiEscapeSequences(this.ansiColorCodes);
@@ -234,4 +239,5 @@ class AnsiRenderer {
     }
 }
 
-export default AnsiRenderer;
+exports.default = AnsiRenderer;
+//# sourceMappingURL=ansi-terminal.js.map

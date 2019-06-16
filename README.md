@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/kalininskiy/bin2wav.svg?style=plastic)](https://github.com/kalininskiy/bin2wav/blob/master/LICENSE)
 
-Open Source, pure (without external libraries and dependencies) JavaScript (ES6+), ascii/ansi tetris (cli version)
+Open Source, Pure JavaScript Tetris (ES6+ without external libraries and dependencies), ascii/ansi cli version
 
 This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
 

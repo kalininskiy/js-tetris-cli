@@ -84,9 +84,9 @@ class Config {
             frontColor: this.theme.piece.S.frontColor,
             backgroundColor: this.theme.piece.S.backgroundColor,
             blockConfig: [
-                [1,0,0],
-                [1,1,1],
-                [0,0,1]
+                [0,0,0],
+                [0,1,1],
+                [1,1,0]
             ]};
 
         this.pieceTypes['T'] = {
@@ -106,9 +106,9 @@ class Config {
             frontColor: this.theme.piece.Z.frontColor,
             backgroundColor: this.theme.piece.Z.backgroundColor,
             blockConfig: [
-                [0,0,1],
-                [1,1,1],
-                [1,0,0]
+                [0,0,0],
+                [1,1,0],
+                [0,1,1]
             ]};
     }
 }

@@ -80,7 +80,7 @@ class Config {
             symbols: this.theme.piece.S.symbols,
             frontColor: this.theme.piece.S.frontColor,
             backgroundColor: this.theme.piece.S.backgroundColor,
-            blockConfig: [[1, 0, 0], [1, 1, 1], [0, 0, 1]] };
+            blockConfig: [[0, 0, 0], [0, 1, 1], [1, 1, 0]] };
 
         this.pieceTypes['T'] = {
             type: 'T',
@@ -94,7 +94,7 @@ class Config {
             symbols: this.theme.piece.Z.symbols,
             frontColor: this.theme.piece.Z.frontColor,
             backgroundColor: this.theme.piece.Z.backgroundColor,
-            blockConfig: [[0, 0, 1], [1, 1, 1], [1, 0, 0]] };
+            blockConfig: [[0, 0, 0], [1, 1, 0], [0, 1, 1]] };
     }
 }
 

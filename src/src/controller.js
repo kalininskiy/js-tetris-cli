@@ -4,9 +4,10 @@
  * @class Controller
  */
 class Controller {
-    constructor(game, renderer) {
+    constructor(game, renderer, config) {
         this.game = game;
         this.renderer = renderer;
+        this.config = config;
         this.isPlaying = false;
         this.interval = null;
 
@@ -75,7 +76,7 @@ class Controller {
 
     updateRender() {
         const viewModel = this.viewModel;
-        console.log(viewModel);
+        this.renderer.renderMainScreen(viewModel, this.config);
 
         // if (viewModel.isGameOver) {
         //     this.renderer.renderEndScreen(viewModel);

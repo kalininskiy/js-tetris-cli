@@ -1,9 +1,9 @@
 import Config from './src/config';
-import Blocks from './src/blocks';
 import Game from './src/game';
 import Matrix from './src/matrix';
 import Controller from './src/controller';
 import readline from 'readline';
+import ansiRenderer from './renderer/ansi/ansi-terminal'
 
 /**
  * Entry point
@@ -12,10 +12,16 @@ import readline from 'readline';
  */
 module.exports = async () => {
 
+    const renderer = new ansiRenderer();
+    renderer.clearScreen();
+
+    renderer.cursorPosition(1, 1);
+    renderer.out('Pure JS (ES6+) Tetris (ascii/ansi cli version) by Ivan "VDM" Kalininskiy, (c) 2019', 'yellow', 'bgBlack', 'bold');
+
     const config = new Config();
     const matrix = new Matrix(config.matrix);
     const game = new Game(config, matrix);
-    const controller = new Controller(game, undefined);
+    const controller = new Controller(game, renderer, config);
 
     readline.emitKeypressEvents(process.stdin);
     process.stdin.setRawMode(true);

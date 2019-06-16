@@ -1,13 +1,13 @@
 {
   "name": "js-tetris-cli",
-  "version": "0.0.2",
-  "description": "open source javascript ascii tetris cli version",
+  "version": "0.0.3",
+  "description": "open source pure javascript tetris (without external libraries and dependencies) ascii/ansi cli version",
   "main": "index.js",
   "bin": {
     "js-tetris-cli": "bin/js-tetris-cli"
   },
   "scripts": {
-    "build": "babel src -d dist  --source-maps",
+    "build": "babel src -d dist --source-maps",
     "start": "bin/js-tetris-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

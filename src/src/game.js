@@ -38,7 +38,7 @@ class Game {
     updateScore() {
         const clearedLines = this._matrix.clearLines();
         if (clearedLines > 0) {
-            this.score += Game.points[clearedLines] * (this.level + 1);
+            this.score += this.points[clearedLines] * (this.level + 1);
             this.lines += clearedLines;
         }
     }
@@ -58,7 +58,12 @@ class Game {
         }
 
         for (let block of this.activeBlocks) {
-            if (block && block.y > -1 && block.x > -1) {
+            if (block &&
+                block.x > -1 &&
+                block.x < this._matrix.columns &&
+                block.y > -1 &&
+                block.y < this._matrix.rows) {
+
                 matrix[block.y][block.x] = block;
             }
         }
