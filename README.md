@@ -4,6 +4,8 @@
 
 Open Source, Pure JavaScript Tetris (ES6+ without external libraries and dependencies), ascii/ansi cli version
 
+[![asciicast](https://asciinema.org/a/kBPZPPTAJCU5GfQj4xh9spFBM.svg)](https://asciinema.org/a/kBPZPPTAJCU5GfQj4xh9spFBM)
+
 This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
 
 ## Install and usage
